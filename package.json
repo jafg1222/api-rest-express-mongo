@@ -1,0 +1,26 @@
+{
+    "name": "api_men",
+    "version": "0.0.1",
+    "description": "API with Mongo-Express-EJS-Node",
+    "main": "index.js",
+    "scripts": {
+        "start": "supervisor src/app.js"
+    },
+    "keywords": [
+        "node",
+        "mongodb",
+        "express",
+        "ejs",
+        "javascript",
+        "es6"
+    ],
+    "author": "@jafg1222",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "express": "^4.16.2",
+        "mongoose": "^4.12.3",
+        "morgan": "^1.9.0",
+        "serve-favicon": "^2.4.5"
+    }
+}
