@@ -1,12 +1,32 @@
+/*|-------------|
+  |   Requires  |
+  |-------------|*/
+
+// Require from express module
 const express = require('express');
-const controllers = require('../controllers/controllers')
+// Require the necessary controllers
+const controllers = require('../controllers/controllers');
+// routes variable
 const routes = express.Router();
 
-routes.get('/', (req, res, next) => {});
+/*|--------------|
+  | Methods POST |
+  |--------------|*/
 
-// Method POST to agregate notes
-routes.post('/notes', controllers.newNote);
+// agregate notes
+routes.post('/all', controllers.newNote);
 
+/*|-------------|
+  | Methods GET |
+  |-------------|*/
+
+// Find notes but tittle
 routes.get('/notes/:title', controllers.findNote);
+// Find all notes
+routes.get('/notes', controllers.allNotes);
+
+/*|----------------|
+  | Exports Module |
+  |----------------|*/
 
 module.exports = routes
