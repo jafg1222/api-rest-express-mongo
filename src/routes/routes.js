@@ -14,7 +14,7 @@ const routes = express.Router();
   |--------------|*/
 
 // agregate notes
-routes.post('/all', controllers.newNote);
+routes.post('/notes', controllers.newNote);
 
 /*|-------------|
   | Methods GET |
@@ -24,6 +24,15 @@ routes.post('/all', controllers.newNote);
 routes.get('/notes/:title', controllers.findNote);
 // Find all notes
 routes.get('/notes', controllers.allNotes);
+// Find top last notes
+routes.get('/lastNotes',controllers.lastNotes);
+
+
+/*|----------------|
+  | Methods DELETE |
+  |----------------|*/
+
+routes.delete('/notes/:id',controllers.findDeleted);
 
 /*|----------------|
   | Exports Module |

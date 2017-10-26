@@ -37,7 +37,7 @@ const findNote = (req, res) => {
 }
 
 // allNotes function to find all notes
-const allNotes = (req, res) => {
+const allNotes = (req, res) => {            
     notes.find({})
         .then((doc) => {
             let response = {
@@ -55,5 +55,47 @@ const allNotes = (req, res) => {
         })
 }
 
+const findDeleted = (req,res)=>{    
+    let searchParams = {
+        '_id': new ObjectId(req.params.id) // this class convert _id data from request in ObjectID to mongodb
+    }
+    notes.findByIdAndRemove(searchParams)
+    .then(doc =>{
+        let response = {
+            response: {
+                "status": "ok",
+                "http_code": 200,                
+            },
+            data: {
+                result:true
+            }
+        }        
+        res.status(200).json(response).end();
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+}
 
-module.exports = { newNote, findNote, allNotes }
+const lastNotes = (req,res)=>{
+    let date = new Date();
+    date.setDate(date.getDate()-8); //Create the date range limit
+    
+    notes.find(({date:{$gte: date,$lt:new Date()}})).sort({date:-1}).limit(7) //Sort is OrderBY T-sql -1 des 1 asc limit is a top T-SQL
+    .then((doc)=>{
+        let response = {
+            response:{
+            "status":"ok",
+            "http_code":200
+        },
+        data: doc
+        };
+        res.status(200).json(doc).end();        
+    })
+    .catch((err)=>{
+        res.status(500).json(err).end();
+    })
+}
+
+
+module.exports = { newNote, findNote, allNotes,findDeleted,lastNotes }
