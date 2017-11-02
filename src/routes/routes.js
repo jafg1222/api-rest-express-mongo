@@ -26,6 +26,8 @@ routes.get('/notes/:title', controllers.findNote);
 routes.get('/notes', controllers.allNotes);
 // Find top last notes
 routes.get('/lastNotes',controllers.lastNotes);
+// Find top last notes
+routes.get('/lastNote',controllers.lastNote);
 
 
 /*|----------------|

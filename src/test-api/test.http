@@ -1,1 +1,1 @@
-GET  https://localhost:3000/notes
+GET  https://localhost:3000/lastNote
