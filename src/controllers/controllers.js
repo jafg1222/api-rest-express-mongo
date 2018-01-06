@@ -27,6 +27,7 @@ const findNote = (req, res) => {
                 },
                 data: doc
             }
+            console.log(doc)
             res.status(200).json(response).end();
         })
         .catch((err) => {
