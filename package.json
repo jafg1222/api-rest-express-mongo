@@ -4,7 +4,7 @@
     "description": "API with Mongo-Express-EJS-Node",
     "main": "index.js",
     "scripts": {
-        "start": "supervisor src/app.js"
+        "start": "node src/app.js"
     },
     "keywords": [
         "node",
