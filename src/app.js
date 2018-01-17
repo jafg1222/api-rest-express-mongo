@@ -29,3 +29,5 @@ app.use(routes);
 app.listen(app.get('port'), () => {
     console.log("Starting server on http://localhost:" + app.get('port'))
 })
+
+module.exports = app;

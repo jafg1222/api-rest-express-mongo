@@ -4,7 +4,8 @@
     "description": "API with Mongo-Express-EJS-Node",
     "main": "index.js",
     "scripts": {
-        "start": "node src/app.js"
+        "start": "node src/app.js",
+        "test": "NODE_ENV=test mocha - timeout 10000"
     },
     "keywords": [
         "node",
@@ -22,5 +23,11 @@
         "mongoose": "^4.12.3",
         "morgan": "^1.9.0",
         "serve-favicon": "^2.4.5"
+    },
+    "devDependencies": {
+        "chai": "^3.2.0",
+        "chai-http": "^1.0.0",
+        "mocha": "^4.1.0",
+        "supertest": "^3.0.0"
     }
 }
